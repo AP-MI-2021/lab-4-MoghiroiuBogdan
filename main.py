@@ -114,7 +114,6 @@ def cmmdc(l):
 def test1():
     assert cmmdc([12,24,144]) == 12
 
-
 def oglindit(x):
     '''
     afis oglinditul uni nr
@@ -154,6 +153,40 @@ def test_list_cmmdc():
     assert list_cmmdc([-76, 12, 24, -13, 144]) == [-67, 12, 12, -31, 12]
 
 
+def list_cmmdc(l):
+    '''
+    Afișarea listei obținute din lista inițială în care numerele pozitive și nenule au fost înlocuite cu
+CMMDC-ul lor și numerele negative au cifrele în ordine inversă.
+    :param l:lista de nr intregi
+    :return:lista obținute din lista inițială în care numerele pozitive și nenule au fost înlocuite cu
+CMMDC-ul lor și numerele negative au cifrele în ordine inversă.
+    '''
+    rez1 = []
+    rez2 = []
+    for x in l:
+        if x > 0:
+            rez1.append(x)
+    cm = cmmdc(rez1)
+
+    for x in l:
+        if x > 0:
+            rez2.append(cm)
+        elif x < 0:
+            x=x*(-1)
+            ogl = 0
+            while x != 0:
+                ogl = ogl * 10 + x % 10
+                x = x // 10
+            ogl=ogl * (-1)
+            rez2.append(ogl)
+
+    return rez2
+
+
+def test_list_cmmdc():
+    assert list_cmmdc([-76, 12, 24, -13, 144]) == [-67, 12, 12, -31, 12]
+
+
 def main():
     l = []
     test_nr_negative()
@@ -167,8 +200,7 @@ def main():
         print("2.afiseaza nr negative din lista, nenule")
         print("3.Afișeaza cel mai mic număr care are ultima cifră egală cu o cifră citită de la tastatură")
         print("4.Afișarea tuturor numerelor din listă care sunt superprime.")
-        print("5.Afișarea listei obținute din lista inițială în care numerele pozitive "
-              "și nenule au fost înlocuite cu cmmdc ul lor si cele negative au nr in ord inversa")
+        print("5.Afișarea listei obținute din lista inițială în care numerele pozitive [...]")
         print("x.IESIRE")
         option = input("dati nr=")
 
