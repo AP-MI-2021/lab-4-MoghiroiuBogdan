@@ -126,32 +126,6 @@ def oglindit(x):
         x=x//10
     return ogl
 
-def list_cmmdc(l):
-    '''
-    Afișarea listei obținute din lista inițială în care numerele pozitive și nenule au fost înlocuite cu
-CMMDC-ul lor și numerele negative au cifrele în ordine inversă.
-    :param l:lista de nr intregi
-    :return:lista obținute din lista inițială în care numerele pozitive și nenule au fost înlocuite cu
-CMMDC-ul lor și numerele negative au cifrele în ordine inversă.
-    '''
-    rez1 = []
-    rez2=[]
-    for x in l:
-        if x > 0:
-            rez1.append(x)
-    cm = cmmdc(rez1)
-
-    for x in l:
-        if x > 0:
-            rez2.append(cm)
-        else:
-            rez2.append(oglindit(x))
-    return rez2
-
-
-def test_list_cmmdc():
-    assert list_cmmdc([-76, 12, 24, -13, 144]) == [-67, 12, 12, -31, 12]
-
 
 def list_cmmdc(l):
     '''
