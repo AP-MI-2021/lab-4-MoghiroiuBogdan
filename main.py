@@ -22,10 +22,10 @@ def nr_negative(l):
 
 
 def test_nr_negative():
-    assert  nr_negative([1,3,-43,0,-5]) == [-43,-5]
+    assert nr_negative([1, 3, -43, 0, -5]) == [-43, -5]
 
 
-def nr_mic(l,k):
+def nr_mic(l, k):
     '''
     Afișarea celui mai mic număr care are ultima cifră egală cu o cifră citită de la tastatură.
     :param l: lista de nr intregi
@@ -69,6 +69,7 @@ def test():
     assert is_superprime(237) is False
     assert is_superprime(233) is True
 
+
 def list_superprim(l):
     '''
     Afișarea tuturor numerelor din listă care sunt superprime.
@@ -83,7 +84,7 @@ def list_superprim(l):
 
 
 def test_list_superprim():
-    assert list_superprim([237,239,233]) == [239,233]
+    assert list_superprim([237, 239, 233]) == [239, 233]
 
 
 def cmmdc(l):
@@ -99,32 +100,20 @@ def cmmdc(l):
             cop = cop - cop1
         else:
             cop1 = cop1 - cop
-    cm=cop
-    for i in range(2,len(l)-1):
-        x=l[i]
+    cm = cop
+    for i in range(2, len(l) - 1):
+        x = l[i]
         while cm != x:
             if cm > x:
-                cm=cm-x
+                cm = cm - x
             else:
-                x=x-cm
+                x = x - cm
         cm = x
     return cm
 
 
 def test1():
-    assert cmmdc([12,24,144]) == 12
-
-def oglindit(x):
-    '''
-    afis oglinditul uni nr
-    :param x: nr intreg
-    :return: oglinditul numarului
-    '''
-    ogl=0
-    while x != 0:
-        ogl=ogl*10 + x%10
-        x=x//10
-    return ogl
+    assert cmmdc([12, 24, 144]) == 12
 
 
 def list_cmmdc(l):
@@ -146,12 +135,12 @@ CMMDC-ul lor și numerele negative au cifrele în ordine inversă.
         if x > 0:
             rez2.append(cm)
         elif x < 0:
-            x=x*(-1)
+            x = x * (-1)
             ogl = 0
             while x != 0:
                 ogl = ogl * 10 + x % 10
                 x = x // 10
-            ogl=ogl * (-1)
+            ogl = ogl * (-1)
             rez2.append(ogl)
 
     return rez2
@@ -174,7 +163,9 @@ def main():
         print("2.afiseaza nr negative din lista, nenule")
         print("3.Afișeaza cel mai mic număr care are ultima cifră egală cu o cifră citită de la tastatură")
         print("4.Afișarea tuturor numerelor din listă care sunt superprime.")
-        print("5.Afișarea listei obținute din lista inițială în care numerele pozitive [...]")
+        print("5.Afișarea listei obținute din lista inițială în care numerele pozitive "
+              "și nenule au fost înlocuite cu cmmd cul lor iar nr negative cu inversa lor")
+
         print("x.IESIRE")
         option = input("dati nr=")
 
@@ -183,8 +174,8 @@ def main():
         elif option == "2":
             print(nr_negative(l))
         elif option == "3":
-            k=int(input("dati k="))
-            print(nr_mic(l,k))
+            k = int(input("dati k="))
+            print(nr_mic(l, k))
         elif option == "4":
             print(list_superprim(l))
         elif option == "5":
