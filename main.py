@@ -8,6 +8,8 @@ def citire_lista():
     return l
 
 
+
+
 def nr_negative(l):
     '''
     afiseaza nr negative din lista, nenule
